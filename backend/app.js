@@ -6,8 +6,9 @@ const { isProduction } = require('./config/keys');
 const csurf = require('csurf');
 const debug = require('debug');
 require('./models/User');
-require('./config/passport'); // <-- ADD THIS LINE
-const passport = require('passport'); // <-- ADD THIS LINE
+require('./models/Tweet');
+require('./config/passport');
+const passport = require('passport');
 
 
 const csrfRouter = require('./routes/api/csrf');
