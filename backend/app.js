@@ -6,7 +6,8 @@ const { isProduction } = require('./config/keys');
 const csurf = require('csurf');
 const debug = require('debug');
 require('./models/User');
-
+require('./config/passport'); // <-- ADD THIS LINE
+const passport = require('passport'); // <-- ADD THIS LINE
 
 
 const csrfRouter = require('./routes/api/csrf');
@@ -20,7 +21,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-
+app.use(passport.initialize());
 
 
 // ADD THIS SECURITY MIDDLEWARE
